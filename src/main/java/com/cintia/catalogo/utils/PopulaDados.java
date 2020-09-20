@@ -20,6 +20,8 @@ public class PopulaDados {
 
     //@PostConstruct   
     //Comentado para que o cadastro dos registros não seja executado mais de uma vez
+    //Não é uma boa prática estar aqui, utilizado apenas para efeito didático; em uma aplicação
+    //de fato, seria tratado em arquivos de configuração/inicialização do sistema
     public void cadastrarMusica(){
 
     List<Musica> listaMusica = new ArrayList<>();
