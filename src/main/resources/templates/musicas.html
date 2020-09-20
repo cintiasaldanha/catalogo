@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset='utf-8'>    
+    <title>Catalogo de Musicas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1" style="font-weight: bold;">
+            <a href="/musicas">Catalogo Musical</a></span>
+            <a href="/addMusica" class="btn btn-primary" role="button">Adicionar</a>
+        </nav>
+    </header>
+    <section>
+        <div class="container" style="width: 60%; padding-top: 30px;">
+            <div class="card" style="margin-top: 20px;" th:each="musica : ${musicas}">                
+                <div class="card-body">                  
+                  <p class="card-subtitle mb-2 text-muted">
+                    <span th:text="${musica.autor}" ></span> | 
+                    <span th:text="${musica.data}" ></span>
+                  </p>
+                  
+                  <a th:href="${(#mvc.url('CC#getMusicaDetalhes').arg(0, musica.id)).build()}"> <h4 class="card-title" style="font-weight: bold; color: black; padding-top: 5px;">
+                  <span th:text="${musica.titulo}"> </span></h4> </a>
+                 
+                  <p class="card-text">                        
+                        <span th:utext="${#strings.abbreviate(musica.letra,200)}"></span> 
+                  </p>
+                 </div>
+              </div>
+        </div>    
+    </section>    
+</body>
+</html>
