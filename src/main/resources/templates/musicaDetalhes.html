@@ -10,7 +10,7 @@
     <header>
         <nav class="navbar navbar-light bg-light">
             <span class="navbar-brand mb-0 h1" style="font-weight: bold;">
-            <a href="/musicas">Catalogo Musical</a></span>
+            <a href="/musicas">Catálogo Musical</a></span>
         </nav>
     </header>
     <main>
@@ -27,6 +27,10 @@
                     <section>
                         <p class="card-text" style="margin-top: 40px;">
                         <span th:utext="${musica.letra}"></span></p>
+                    </section>
+                    <section>
+                        <!--<a th:href="/excluirmusica/${musica.id}" class="btn btn-primary"  text-align="right" role="button">Excluir</a>-->
+                        <a class="btn btn-primary"  th:href="@{/excluirmusica/{id}(id=${musica.id})}">Excluir</a>
                     </section>                                   
             </article>
         </div>   

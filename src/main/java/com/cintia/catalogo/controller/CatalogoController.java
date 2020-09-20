@@ -59,8 +59,16 @@ public class CatalogoController {
         catalogoService.save(musica);
         return "redirect:/addMusica";
     }
-    
-    
-    
+  
+  @RequestMapping(value = "/excluirmusica/{id}", method=RequestMethod.GET)
+  public String excluirMusica(@PathVariable("id") Long id) {
+      
+      //Exclui música selecionada
+      catalogoService.excluir(id);
+      
+       //Redireciona para lista de músicas 
+       return "redirect:/musicas";
+  }
+
 
 }
