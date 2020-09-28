@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset='utf-8'>    
+    <title>Editar Música</title>          
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+</head>
+<body> 
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1" style="font-weight: bold;" > <a href="/musicas">Catálogo Musical</a> </span>                            
+         </nav>
+
+    </header>
+
+    <section> 
+        <div class="container" style="width: 60%; padding-bottom: 30px;">            
+            <div>                
+                <div> <th:block th:include="mensagemErro"></th:block> </div>           
+                <form action="#" th:action="@{/editarmusica/{id}(id=${musica.id})}" th:object="${musica}" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="titulo" placeholder="Título *" th:value="${musica.titulo}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="autor" placeholder="Autor *" th:value="${musica.autor}">
+                    </div>
+    
+                    <textarea id="summernote" type="text" class="form-control" name="letra" placeholder="Letra *" th:text="${musica.letra}"></textarea>
+    
+                    <small class="form-text text-muted">(*) Campos obrigatórios</small>
+    
+                    <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Alterar</button>
+                    <a th:href="musicas" class="btn btn-light" role="button" style="margin-top: 10px;">Cancelar</a>                    
+                                    
+                </form>
+            </div>         
+        </div>
+    </section>   
+   
+</body>
+</html>

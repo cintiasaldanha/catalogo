@@ -29,7 +29,6 @@
                         <span th:utext="${musica.letra}"></span></p>
                     </section>
                     <section>
-                        <!--<a th:href="/excluirmusica/${musica.id}" class="btn btn-primary"  text-align="right" role="button">Excluir</a>-->
                         <a class="btn btn-primary"  th:href="@{/excluirmusica/{id}(id=${musica.id})}">Excluir</a>
                     </section>                                   
             </article>

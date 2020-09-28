@@ -29,6 +29,17 @@
                   <p class="card-text">                        
                         <span th:utext="${#strings.abbreviate(musica.letra,200)}"></span> 
                   </p>
+
+                  <p>
+                    <span> 
+                        <!--<a class="btn btn-primary"  th:href="@{/addmusica/{id}(id=${musica.id})}">Editar</a>-->
+                        <a class="btn btn-primary"  th:href="${(#mvc.url('CC#getMusicaDetalhesParaEdicao').arg(0, musica.id)).build()}">Editar</a>                      
+                    </span>
+
+                    <span> 
+                        <a class="btn btn-primary"  th:href="@{/excluirmusica/{id}(id=${musica.id})}">Excluir</a>
+                    </span> 
+                  </p>
                  </div>
               </div>
         </div>    

@@ -6,6 +6,7 @@ import com.cintia.catalogo.model.Musica;
 import com.cintia.catalogo.repository.CatalogoRepository;
 import com.cintia.catalogo.service.CatalogoService;
 
+import org.hibernate.loader.plan.build.internal.CascadeStyleLoadPlanBuildingAssociationVisitationStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,4 +36,8 @@ public class CatalogoServiceImpl implements CatalogoService {
         catalogoRepository.deleteById(id);
     }
     
+    @Override
+    public Musica saveById(Musica musica){
+        return catalogoRepository.save(musica);
+    }
 }

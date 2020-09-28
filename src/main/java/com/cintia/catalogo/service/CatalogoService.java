@@ -7,5 +7,6 @@ public interface CatalogoService {
     List<Musica> findAll();
     Musica findById(long id);
     Musica save(Musica musica);
-    void excluir(long id);    
+    void excluir(long id); 
+    Musica saveById(Musica musica);   
 }
