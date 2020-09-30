@@ -70,7 +70,7 @@ public class CatalogoController {
     }
 
    //Cintia
-    @RequestMapping(value = "/editarMusica/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/editarmusica/{id}", method = RequestMethod.POST)
     public String editarMusica(@Valid Musica musica, BindingResult result, RedirectAttributes attributes,@PathVariable("id") long id) {
     //@RequestMapping(value = "/editarMusica",  method = RequestMethod.POST)
     //public String editarMusica(@Valid Musica musica, BindingResult result, RedirectAttributes attributes) {
@@ -85,13 +85,27 @@ public class CatalogoController {
         return "redirect:/musicas";
     }
 
-        //Cintia
-        @RequestMapping(value = "/editarmusica/{id}", method = RequestMethod.GET)
-        public ModelAndView getMusicaDetalhesParaEdicao(@PathVariable("id") long id) {
-            ModelAndView mv = new ModelAndView("musicaEdicaoForm");
-            Musica musica = catalogoService.findById(id);
-            mv.addObject("musica", musica);
-            return mv;
-        }
+    //Cintia
+    @RequestMapping(value = "/editarmusica/{id}", method = RequestMethod.GET)
+    public ModelAndView getMusicaDetalhesParaEdicao(@PathVariable("id") long id) {
+        ModelAndView mv = new ModelAndView("musicaEdicaoForm");
+        Musica musica = catalogoService.findById(id);
+        mv.addObject("musica", musica);
+        return mv;
+    }
+      
+   //Cintia
+   @RequestMapping(value = "/editarmusica", method = RequestMethod.POST)
+   public String editarMusica(@Valid Musica musica, BindingResult result, RedirectAttributes attributes) {
+
+       if (result.hasErrors()) {
+           attributes.addFlashAttribute("mensagem", "Campos obrigatórios não preenchidos!!!");
+           return "redirect:/addMusica";
+       }
+       musica.setData(LocalDate.now());
+       catalogoService.excluir(musica.getId());
+       catalogoService.save(musica);
+       return "redirect:/musicas";
+   }
 
 }

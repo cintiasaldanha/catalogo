@@ -18,7 +18,8 @@
         <div class="container" style="width: 60%; padding-bottom: 30px;">            
             <div>                
                 <div> <th:block th:include="mensagemErro"></th:block> </div>           
-                <form action="#" th:action="@{/editarmusica/{id}(id=${musica.id})}" th:object="${musica}" method="POST">
+                <!--<form  action="#" th:action="@{/editarmusica}" th:object="${musica}" method="POST">-->
+                <form method="post">    
                     <div class="form-group">
                         <input type="text" class="form-control" name="titulo" placeholder="Título *" th:value="${musica.titulo}">
                     </div>
@@ -32,7 +33,7 @@
     
                     <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Alterar</button>
                     <a th:href="musicas" class="btn btn-light" role="button" style="margin-top: 10px;">Cancelar</a>                    
-                                    
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>               
                 </form>
             </div>         
         </div>
