@@ -17,8 +17,7 @@
     <section> 
         <div class="container" style="width: 60%; padding-bottom: 30px;">            
             <div>                
-                <div> <th:block th:include="mensagemErro"></th:block> </div>           
-                <!--<form  action="#" th:action="@{/editarmusica}" th:object="${musica}" method="POST">-->
+                <div> <th:block th:include="mensagemErro"></th:block> </div>                         
                 <form method="post">    
                     <div class="form-group">
                         <input type="text" class="form-control" name="titulo" placeholder="Título *" th:value="${musica.titulo}">
