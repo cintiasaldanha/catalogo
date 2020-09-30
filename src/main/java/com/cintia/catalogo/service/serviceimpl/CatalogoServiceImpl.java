@@ -36,8 +36,4 @@ public class CatalogoServiceImpl implements CatalogoService {
         catalogoRepository.deleteById(id);
     }
     
-    @Override
-    public Musica saveById(Musica musica){
-        return catalogoRepository.save(musica);
-    }
 }
